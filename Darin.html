@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Hai Kamu 💗</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .box {
+      background: white;
+      padding: 30px;
+      width: 90%;
+      max-width: 380px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+      animation: fade 0.8s ease;
+    }
+
+    h1 {
+      color: #ff4d6d;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #555;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    button {
+      margin-top: 18px;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 30px;
+      background: #ff4d6d;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.08);
+      background: #e63950;
+    }
+
+    .heart {
+      font-size: 40px;
+      animation: beat 1s infinite;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @keyframes beat {
+      0%,100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    @keyframes fade {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+    <div class="heart">💗</div>
+    <h1>Hai kamu</h1>
+    <p id="text">
+      Aku cuma mau bilang satu hal kecil 😳
+    </p>
+
+    <button onclick="next()">Klik aku</button>
+  </div>
+
+  <!-- MUSIK OPSIONAL -->
+  <!-- kalau mau musik, taruh lagu.mp3 di folder yang sama -->
+  <audio id="bgm">
+    <source src="lagu.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    let step = 0;
+    const text = document.getElementById("text");
+    const bgm = document.getElementById("bgm");
+
+    function next() {
+      step++;
+
+      // musik aman (kalau ada file-nya)
+      if (step === 1) {
+        bgm.play().catch(()=>{});
+      }
+
+      if (step === 1) {
+        text.innerHTML = "Akhir-akhir ini aku sering senyum sendiri 🤍";
+      } 
+      else if (step === 2) {
+        text.innerHTML = "Padahal cuma baca chat dari kamu 😄";
+      } 
+      else if (step === 3) {
+        text.innerHTML = "Ini bukan apa-apa sih… cuma pengen kamu tau 😊";
+      } 
+      else {
+        text.innerHTML = "Makasih ya udah bikin hari aku lebih ringan 💗";
+      }
+    }
+  </script>
+
+</body>
+</html>
